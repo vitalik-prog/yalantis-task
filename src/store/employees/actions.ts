@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { employeesApi } from '../../services';
-import { Employee, AsyncThunkConfig } from '../../types';
+import { Employee, AsyncThunkConfig } from '../../common/types';
 import { ActionType } from './common';
 
 const getEmployees = createAsyncThunk<Employee[], undefined, AsyncThunkConfig>(

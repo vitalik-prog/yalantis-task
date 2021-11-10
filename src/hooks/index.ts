@@ -1,1 +1,1 @@
-export { useAppSelector } from './useAppSelector'
+export { useAppSelector } from './useAppSelector';

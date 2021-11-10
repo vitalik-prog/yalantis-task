@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { DataStatus } from '../../enums';
-import { Employee } from '../../types';
+import { Employee } from '../../common/types';
 import { getEmployees } from './actions';
 
 type State = {

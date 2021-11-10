@@ -1,5 +1,5 @@
 import { Path, HttpMethod } from '../../enums';
-import { Employee } from '../../types';
+import { Employee } from '../../common/types';
 import { Http } from '../http';
 
 type Constructor = {
