@@ -1,4 +1,4 @@
-import { extraArgument } from '../../store'
+import { extraArgument } from '../../../store'
 import { AppDispatch } from './appDispatch'
 import { RootState } from './rootState'
 
