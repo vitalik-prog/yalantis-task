@@ -27,4 +27,19 @@ const alphabet = [
   'Z',
 ];
 
-export { alphabet };
+const month = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December',
+];
+
+export { alphabet, month };

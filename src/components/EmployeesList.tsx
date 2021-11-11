@@ -16,9 +16,9 @@ const EmployeesList: React.FC<Props> = ({ employees }) => {
     dispatch(selectEmployee(employeeId));
   };
   return (
-    <div className={'employeesList'}>
+    <>
       <div className={'employees'}>
-        <h1>Employees</h1>
+        <h2>Employees</h2>
         <div className={'listWrapper'}>
           {alphabet.map((letter) => {
             let isNameExist = false;
@@ -47,10 +47,7 @@ const EmployeesList: React.FC<Props> = ({ employees }) => {
           })}
         </div>
       </div>
-      <div className={'employeesBirthday'}>
-        <h1>Employees birthday</h1>
-      </div>
-    </div>
+    </>
   );
 };
 

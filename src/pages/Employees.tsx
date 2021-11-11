@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { getEmployees } from '../store/actions';
-import { Loader, EmployeesList } from '../components';
+import { Loader, EmployeesList, EmployeesBirthdayList } from '../components';
 import { useAppSelector } from '../hooks';
 import { DataStatus } from '../enums';
 
@@ -21,9 +21,10 @@ const EmployeesPage: React.FC = () => {
   }
 
   return (
-    <>
+    <div className={'employeesPage'}>
       <EmployeesList employees={employees} />
-    </>
+      <EmployeesBirthdayList employees={employees} />
+    </div>
   );
 };
 
