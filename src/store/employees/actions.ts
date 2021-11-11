@@ -7,9 +7,36 @@ const getEmployees = createAsyncThunk<Employee[], undefined, AsyncThunkConfig>(
   ActionType.EMPLOYEES_GET,
   async (_args, { extra }) => {
     console.log(_args);
-    console.log(extra);
-    return await employeesApi.getEmployees();
+    const { storage } = extra;
+    const employees = await employeesApi.getEmployees();
+    return employees.map((employee) => {
+      return {
+        ...employee,
+        isActive: Boolean(storage.getItem(employee.id)),
+      };
+    });
   }
 );
 
-export { getEmployees };
+const selectEmployee = createAsyncThunk<Employee[], string, AsyncThunkConfig>(
+  ActionType.EMPLOYEE_SELECT,
+  async (employeeId, { extra, getState }) => {
+    const { storage } = extra;
+    const { employees } = getState();
+    const isEmployeeActive = storage.getItem(employeeId);
+    if (isEmployeeActive) {
+      storage.removeItem(employeeId);
+    } else {
+      storage.setItem(employeeId, 'value');
+    }
+    return employees.employees.map((employee) => {
+      if (employee.id !== employeeId) return employee;
+      return {
+        ...employee,
+        isActive: Boolean(!isEmployeeActive),
+      };
+    });
+  }
+);
+
+export { getEmployees, selectEmployee };

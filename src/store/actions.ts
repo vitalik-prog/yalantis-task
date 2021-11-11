@@ -1,1 +1,1 @@
-export { getEmployees } from './employees/actions';
+export { getEmployees, selectEmployee } from './employees/actions';
