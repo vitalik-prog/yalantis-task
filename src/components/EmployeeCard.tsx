@@ -10,14 +10,13 @@ type Props = {
 const EmployeeCard: React.FC<Props> = ({ employee, onEmployeeSelect }) => {
   return (
     <div className={'employeeCard'}>
-      <div>
+      <div className={employee.isActive ? 'blue employeeName' : 'employeeName'}>
         {employee.firstName} {employee.lastName}
       </div>
       <form className={'radioWrapper'}>
         <label>
           <input
             type="radio"
-            //  value="notActive"
             checked={!employee.isActive}
             onChange={() => onEmployeeSelect(employee.id)}
           />
@@ -26,7 +25,6 @@ const EmployeeCard: React.FC<Props> = ({ employee, onEmployeeSelect }) => {
         <label>
           <input
             type="radio"
-            //  value="active"
             checked={employee.isActive}
             onChange={() => onEmployeeSelect(employee.id)}
           />

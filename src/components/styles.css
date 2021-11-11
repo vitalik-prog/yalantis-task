@@ -20,18 +20,24 @@
   100% { transform: rotate(360deg); }
 }
 
-.employeesList {
+.employeesPage {
   display: grid;
   grid-template-columns: 9fr 3fr;
-  margin-top: 80px;
+  margin-top: 30px;
 }
 
 .employees {
-  overflow-x: scroll;
+  overflow: auto;
+  max-height: 500px;
+  background-color: #e5e5e5;
+  padding: 20px;
 }
 
 .employeesBirthday {
-  background-color: burlywood;
+  overflow: auto;
+  max-height: 500px;
+  padding: 20px;
+  background-color: #e5e5e5;
 }
 
 .listWrapper {
@@ -47,6 +53,7 @@
   display: flex;
   flex-direction: column;
   padding: 10px;
+  text-overflow: ellipsis;
 }
 
 .employeeCard {
@@ -62,5 +69,33 @@
 .radioWrapper label {
   display: flex;
   align-items: center;
+  font-size: 0.7rem;
+}
+
+.employeeName {
+  width: 120px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.blue {
+  color: #190dd3;
+  font-weight: bold;
+}
+
+.separator {
+  height: 1px;
+  background-color: black;
+  margin-bottom: 38px;
+  margin-top: 54px;
+}
+
+.monthCard {
+  border-bottom: 1px solid #cdc8c8;
+  margin-bottom: 10px;
+}
+
+.employeeBirthdayCard {
+  font-weight: bold;
   font-size: 0.7rem;
 }
