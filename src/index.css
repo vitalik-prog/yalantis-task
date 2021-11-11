@@ -37,6 +37,7 @@ button,
 textarea,
 select {
   font: inherit;
+  margin: 0 5px 0 0;
 }
 
 #root {

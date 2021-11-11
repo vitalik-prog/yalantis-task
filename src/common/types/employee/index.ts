@@ -1,1 +1,1 @@
-export type { Employee } from './employee'
+export type { Employee } from './employee.type'

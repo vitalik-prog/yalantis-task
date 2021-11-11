@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { DataStatus } from '../../enums';
 import { Employee } from '../../common/types';
-import { getEmployees } from './actions';
+import { getEmployees, selectEmployee } from './actions';
 
 type State = {
   dataStatus: DataStatus;
@@ -27,6 +27,9 @@ const employeesSlice = createSlice({
     });
     builder.addCase(getEmployees.rejected, (state) => {
       state.dataStatus = DataStatus.REJECTED;
+    });
+    builder.addCase(selectEmployee.fulfilled, (state, action) => {
+      state.employees = action.payload;
     });
   },
 });
