@@ -28,7 +28,6 @@
 
 .employees {
   overflow-x: scroll;
-  background-color: blueviolet;
 }
 
 .employeesBirthday {
@@ -39,13 +38,18 @@
   display: flex;
 }
 
+.scroll {
+  width: 100%;
+  overflow-x: scroll;
+}
+
 .letterColumn {
-  background-color: cornflowerblue;
   display: flex;
   flex-direction: column;
+  padding: 10px;
 }
 
 .employeeCard {
-  background-color: chartreuse;
+  padding: 10px 0;
   white-space: nowrap;
 }
