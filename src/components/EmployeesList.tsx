@@ -15,12 +15,21 @@ const EmployeesList: React.FC<Props> = ({ employees }) => {
         <h1>Employees</h1>
         <div className={'listWrapper'}>
           {alphabet.map((letter) => {
+            let namesInLetterCounter = 0;
             return (
               <div className={'letterColumn'} key={letter}>
-                <h5>{letter}</h5>
+                <h3>{letter}</h3>
                 {employees.map((employee) => {
-                  return <EmployeeCard employee={employee} key={employee.id} />;
+                  if (letter === employee.firstName[0].toUpperCase()) {
+                    namesInLetterCounter++;
+                    return <EmployeeCard employee={employee} key={employee.id} />;
+                  }
                 })}
+                {!Boolean(namesInLetterCounter) && (
+                  <span className={'employeeCard'}>
+                    <b>No Employees</b>
+                  </span>
+                )}
               </div>
             );
           })}
