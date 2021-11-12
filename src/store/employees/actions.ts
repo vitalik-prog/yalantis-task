@@ -7,7 +7,6 @@ import { NotificationTitle, NotificationMessage } from '../../enums';
 const getEmployees = createAsyncThunk<Employee[], undefined, AsyncThunkConfig>(
   ActionType.EMPLOYEES_GET,
   async (_args, { extra }) => {
-    console.log(_args);
     const { storage } = extra;
     const employees = await employeesApi.getEmployees();
     return employees.map((employee) => {
