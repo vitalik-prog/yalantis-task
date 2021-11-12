@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import rootReducer from './rootReducer';
-import { employeesApi, storage } from '../services';
+import { employeesApi, storage, notification } from '../services';
 
 const extraArgument = {
   employeesApi,
   storage,
+  notification,
 };
 
 const store = configureStore({

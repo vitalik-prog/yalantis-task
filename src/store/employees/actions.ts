@@ -2,6 +2,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { employeesApi } from '../../services';
 import { Employee, AsyncThunkConfig } from '../../common/types';
 import { ActionType } from './common';
+import { NotificationTitle, NotificationMessage } from '../../enums';
 
 const getEmployees = createAsyncThunk<Employee[], undefined, AsyncThunkConfig>(
   ActionType.EMPLOYEES_GET,
@@ -21,13 +22,18 @@ const getEmployees = createAsyncThunk<Employee[], undefined, AsyncThunkConfig>(
 const selectEmployee = createAsyncThunk<Employee[], string, AsyncThunkConfig>(
   ActionType.EMPLOYEE_SELECT,
   async (employeeId, { extra, getState }) => {
-    const { storage } = extra;
+    const { storage, notification } = extra;
     const { employees } = getState();
     const isEmployeeActive = storage.getItem(employeeId);
     if (isEmployeeActive) {
       storage.removeItem(employeeId);
+      notification.warning(
+        NotificationTitle.SUCCESS,
+        NotificationMessage.EMPLOYEE_SELECTION_DELETED
+      );
     } else {
       storage.setItem(employeeId, 'value');
+      notification.success(NotificationTitle.SUCCESS, NotificationMessage.EMPLOYEE_SELECTED);
     }
     return employees.employees.map((employee) => {
       if (employee.id !== employeeId) return employee;
