@@ -14,7 +14,7 @@ const EmployeesPage: React.FC = () => {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getEmployees());
-  }, []);
+  }, [dispatch]);
 
   if (dataStatus === DataStatus.PENDING) {
     return <Loader />;
