@@ -43,9 +43,7 @@ const EmployeesBirthdayList: React.FC<Props> = ({ employees }) => {
                   }
                 })}
                 {!Boolean(isNameExist) && (
-                  <span className={'employeeBirthdayCard'}>
-                    <b>No Employees</b>
-                  </span>
+                  <div className={'employeeBirthdayCard'}>No Employees</div>
                 )}
               </div>
             );
