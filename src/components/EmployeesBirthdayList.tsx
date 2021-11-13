@@ -1,7 +1,7 @@
 import React from 'react';
 import { EmployeeBirthdayCard } from '.';
-import { month } from '../common/constants/array';
 import { Employee } from '../common/types';
+import { getActiveEmployees, getMonthes } from '../helpers';
 import './styles.css';
 
 type Props = {
@@ -9,21 +9,8 @@ type Props = {
 };
 
 const EmployeesBirthdayList: React.FC<Props> = ({ employees }) => {
-  const activeEmployees = employees
-    .filter((employee) => employee.isActive)
-    // .sort((a, b) => new Date(a.dob).getTime() - new Date(b.dob).getTime());
-    .sort((a, b) => {
-      const nameA = a.lastName.toLowerCase();
-      const nameB = b.lastName.toLowerCase();
-      if (nameA < nameB) return -1;
-      if (nameA > nameB) return 1;
-      return 0;
-    });
-  let monthesFromNowToEndOfYear: string[] = [];
-  let monthesFromStartOfYearTillNow: string[] = [];
-  monthesFromNowToEndOfYear = month.slice(new Date().getMonth());
-  monthesFromStartOfYearTillNow = month.slice(0, new Date().getMonth());
-  const monthes = monthesFromNowToEndOfYear.concat(monthesFromStartOfYearTillNow);
+  const activeEmployees = getActiveEmployees(employees);
+  const monthes = getMonthes();
   const isActiveEmployeesExist = Boolean(activeEmployees.length);
   return (
     <div className={'employeesBirthday'}>
