@@ -28,6 +28,7 @@ const EmployeesList: React.FC<Props> = ({ employees }) => {
       return;
     }
   };
+
   return (
     <>
       <div className={'employees'} onScroll={handleScroll} ref={scrollRef}>
